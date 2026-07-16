@@ -6,7 +6,7 @@ namespace Sales108.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Privacy()
         {
             return View();
         }
@@ -16,7 +16,7 @@ namespace Sales108.Web.Controllers
             return View();
         }
 
-        public IActionResult Inicio()
+        public IActionResult Index()
         {
             return View();
         }
