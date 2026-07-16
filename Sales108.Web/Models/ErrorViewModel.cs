@@ -1,3 +1,5 @@
+
+
 namespace Sales108.Web.Models
 {
     public class ErrorViewModel
