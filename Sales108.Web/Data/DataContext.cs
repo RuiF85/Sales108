@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sales108.Web.Data.Entitis;
+using Sales108.Web.Data.Entities;
 
 namespace Sales108.Web.Data
 {
@@ -10,5 +10,17 @@ namespace Sales108.Web.Data
         }
 
         public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(18, 2);
+        }
     }
+
 }

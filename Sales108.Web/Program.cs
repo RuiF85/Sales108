@@ -11,6 +11,10 @@ builder.Services.AddDbContext<DataContext>(o =>
     o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+builder.Services.AddTransient<SeedDb>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,5 +37,13 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<SeedDb>();
+    await seeder.SeedAsync();
+}
+
 
 app.Run();
+
+
