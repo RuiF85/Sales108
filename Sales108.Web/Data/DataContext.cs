@@ -20,6 +20,14 @@ namespace Sales108.Web.Data
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
                 .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Country>()
+            .HasIndex(c => c.Name)
+            .IsUnique();              //NOME UNICO
+
+            modelBuilder.Entity<Country>()
+             .HasIndex(c => c.Name)
+             .IsUnique();
         }
     }
 

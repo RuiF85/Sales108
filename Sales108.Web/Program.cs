@@ -13,7 +13,8 @@ builder.Services.AddDbContext<DataContext>(o =>
 
 
 builder.Services.AddTransient<SeedDb>();
-
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
