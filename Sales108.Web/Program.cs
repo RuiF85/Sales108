@@ -6,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Add runtime compilation
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+//Inject datacontext
 builder.Services.AddDbContext<DataContext>(o =>
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -15,6 +19,8 @@ builder.Services.AddDbContext<DataContext>(o =>
 builder.Services.AddTransient<SeedDb>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+
 
 var app = builder.Build();
 
