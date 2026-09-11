@@ -33,6 +33,15 @@ namespace Sales108.Web.Data
             modelBuilder.Entity<Country>()
              .HasIndex(c => c.Name)
              .IsUnique();
+
+            modelBuilder.Entity<State>()
+             .HasIndex(s => new { s.Name, s.CountryId })
+             .IsUnique();
+
+            modelBuilder.Entity<City>()
+             .HasIndex(c => new { c.Name, c.StateId })
+             .IsUnique();
+
         }
     }
 
