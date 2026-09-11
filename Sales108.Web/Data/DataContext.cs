@@ -13,6 +13,11 @@ namespace Sales108.Web.Data
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<State> States { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
